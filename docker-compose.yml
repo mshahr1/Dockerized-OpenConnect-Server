@@ -1,0 +1,16 @@
+services:
+  ocserv:
+    image: ghcr.io/mshahr1/ocserv:latest
+    container_name: ocserv
+    ports:
+      - "6443:6443/tcp"
+      - "6443:6443/udp"
+    volumes:
+      - ./ocserv-data:/etc/ocserv
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    sysctls:
+      - net.ipv4.ip_forward=1
+    restart: unless-stopped
