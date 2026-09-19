@@ -1,0 +1,5 @@
+ocserv-data/
+*.pem
+*.key
+*.crt
+.env
